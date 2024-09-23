@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+  <mx:Script>
+ 	<![CDATA[
+ 		public function vvid()
+ 		{
+ 		 TextInput1.text=NumericStepper1.value.toString();
+ 		}
+ 	]]>
+ </mx:Script>
+ <mx:Panel id="Panel1" x="10" y="10" width="472.25" height="201" layout="absolute">
+  <mx:TextInput id="TextInput1" x="10" y="35"  width="158.25"/>
+  <mx:Label id="Label1" x="36.6" y="10" text="{TextInput1.text}"/>
+  <mx:NumericStepper id="NumericStepper1" x="57.6" y="65" change="vvid()" minimum="-100" maximum="+100"/>
+  <mx:TextInput id="TextInput2" x="10" y="126"/>
+  <mx:Label id="Label2" x="9.95" y="100"/>
+   </mx:Panel>
+ <mx:String id="String1">Вася</mx:String>
+ <mx:Model id="model1">
+	<info>
+	   <name>
+		     <firstname> {TextInput2.text} </firstname>
+		     <secondname>Віка і Макс лаба №8</secondname>
+	   <Person>{model1.name.firstname}{model1.name.secondname}</Person>
+	   </name> 
+		  <age> {NumericStepper1.value} </age>
+	   <RR> {model1.name.Person}, їх вік {model1.age}</RR>
+	</info>  
+</mx:Model>
+  <mx:Binding destination="Label2.text" source="model1.RR"/>  
+</mx:Application>
+
